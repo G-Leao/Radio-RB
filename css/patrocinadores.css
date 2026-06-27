@@ -1,0 +1,505 @@
+/* ========================================
+   R.B STUDIO - Patrocinadores CSS
+   Premium Logo Gallery Style
+   ======================================== */
+
+/* ========================================
+   Fundo da Seção
+   ======================================== */
+.section {
+  padding: 80px 0;
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(168, 85, 247, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 0% 100%,
+      rgba(168, 85, 247, 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 100% 100%,
+      rgba(168, 85, 247, 0.04) 0%,
+      transparent 50%
+    ),
+    rgba(10, 10, 10, 1);
+}
+
+/* ========================================
+   Grid - Layout Principal
+   ======================================== */
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   Card - Estilo Logo Tile
+   ======================================== */
+.sponsor-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover - Elevação com glow roxo */
+.sponsor-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* ========================================
+   Imagem - Área Principal (~85% do card)
+   ======================================== */
+.sponsor-image {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px; /* antes 40px 50px */
+  min-height: 220px; /* aumenta impacto visual */
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.sponsor-image img {
+  width: 90%;
+  height: 100%;
+
+  max-width: 100%;
+  max-height: 100%; /* remove o limite que te travava */
+
+  object-fit: contain;
+
+  filter: brightness(0.9) grayscale(10%);
+  transition: all 0.35s ease;
+
+  transform: scale(1.15); /* aumenta presença da imagem */
+}
+
+.sponsor-card:hover .sponsor-image img {
+  filter: brightness(1) grayscale(0%);
+  transform: scale(1.25); /* zoom mais agressivo no hover */
+}
+/* ========================================
+   Nome - Faixa discreta abaixo
+   ======================================== */
+.sponsor-card h3 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #a1a1aa;
+  text-align: center;
+  padding: 12px 16px 16px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.3s ease;
+}
+
+.sponsor-card:hover h3 {
+  color: #e5e5e5;
+  border-top-color: rgba(168, 85, 247, 0.3);
+}
+
+/* ========================================
+   Pub Section (Anuncie)
+   ======================================== */
+
+.pub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+
+  padding: 40px;
+  overflow: hidden; /* 🔥 ESSENCIAL */
+}
+
+.pub-image {
+  width: 100%;
+  height: 220px; /* controla o tamanho do bloco da imagem */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* impede vazamento */
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+.pub-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover; /* 🔥 ESSENCIAL: preenche tudo */
+  object-position: center;
+
+  transition: transform 0.4s ease;
+}
+
+.pub-card:hover .pub-image img {
+  transform: scale(1.08); /* leve zoom sem quebrar */
+}
+
+.pub-icon {
+  font-size: 48px;
+  color: #a855f7;
+  margin-bottom: 20px;
+}
+.pub-section {
+  padding: 80px 0;
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+}
+
+.pub-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(168, 85, 247, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(124, 58, 237, 0.06) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* Grid para 2 cards grandes */
+.pub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Cardpub individual */
+.pub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 60px 40px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.pub-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(168, 85, 247, 0.15);
+}
+
+.pub-card .pub-icon {
+  font-size: 64px;
+  color: #a855f7;
+  margin-bottom: 24px;
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}
+
+.pub-card .pub-content h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.pub-card .pub-content p {
+  font-size: 16px;
+  color: #a1a1aa;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* Old pub-box (hidden, keeping for compatibility) */
+.pub-box {
+  display: none;
+}
+
+/* =========================
+   FOOTER UPGRADE
+========================= */
+
+.footer {
+  padding: 80px 0 25px;
+  background:
+    radial-gradient(circle at top, rgba(168, 85, 247, 0.08), transparent 60%),
+    rgba(10, 10, 10, 1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.footer-brand img {
+  height: 55px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.3));
+}
+
+.footer-brand p {
+  color: #cfcfcf;
+  margin-bottom: 20px;
+}
+
+/* SOCIAL */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  transform: translateY(-4px);
+  border-color: #a855f7;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+  color: #a855f7;
+}
+
+/* LINKS */
+.footer-links h4,
+.footer-contact h4 {
+  margin-bottom: 18px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.footer-links a {
+  display: block;
+  color: #bdbdbd;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #a855f7;
+  transform: translateX(4px);
+}
+
+/* CONTACT */
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cfcfcf;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-contact i {
+  color: #a855f7;
+  width: 18px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-links a {
+    text-align: center;
+  }
+}
+
+/* ========================================
+   Responsividade
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .sponsor-image {
+    min-height: 220px; /* mantém presença forte */
+    padding: 8px; /* quase zero espaço morto */
+  }
+
+  .sponsor-image img {
+    width: 100%;
+    height: 100%;
+    max-height: none; /* remove o bloqueio */
+    object-fit: contain; /* mantém a marca inteira visível */
+    transform: scale(1.2); /* mantém impacto visual */
+  }
+
+  .sponsor-card h3 {
+    font-size: 13px;
+  }
+
+  .pub-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pub-card {
+    padding: 50px 30px;
+  }
+
+  .pub-card .pub-icon {
+    font-size: 52px;
+  }
+
+  .pub-card .pub-content h2 {
+    font-size: 24px;
+  }
+}
+
+/* Celular */
+@media (max-width: 540px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .sponsors-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sponsor-image {
+    min-height: 200px; /* mais equilíbrio */
+    padding: 4px; /* quase zero espaço morto */
+    overflow: hidden;
+  }
+
+  .sponsor-image img {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    transform: scale(1); /* 🔥 remove zoom no mobile */
+    filter: brightness(0.95) grayscale(10%);
+  }
+
+  .sponsor-card:hover .sponsor-image img {
+    transform: scale(1.03); /* hover quase imperceptível no mobile */
+  }
+
+  .sponsor-card h3 {
+    font-size: 14px;
+    padding: 0 16px 24px;
+  }
+
+  .sponsor-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .pub-card {
+    padding: 40px 24px;
+  }
+
+  .pub-card .pub-icon {
+    font-size: 48px;
+  }
+
+  .pub-card .pub-content h2 {
+    font-size: 22px;
+  }
+
+  .pub-card .pub-content p {
+    font-size: 14px;
+  }
+
+  .pub-section {
+    padding: 60px 0;
+  }
+}
+
+/* ========================================
+   Eliminar overflow horizontal
+   ======================================== */
+@media (max-width: 540px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .sponsors-grid,
+  .pub-grid {
+    max-width: 100vw;
+  }
+}

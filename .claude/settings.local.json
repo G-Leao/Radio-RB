@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.radiorb.com.br)",
+      "WebSearch",
+      "Bash(curl -I -s --max-time 10 \"https://stream.zeno.fm/ka72y9d0e78uv\")",
+      "Bash(curl -s --max-time 10 \"https://zeno.fm/rb-studio\")",
+      "Bash(curl -s --max-time 10 \"https://zeno.fm/0马达-忘记\")",
+      "Bash(curl -s --max-time 10 \"https://zeno.fm/\")",
+      "Bash(curl -I -s --max-time 10 \"https://stream-176.surfernetwork.com/afkw3v1gva0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJhZmt3M3YxZ3ZhMHV2IiwiaG9zdCI6InN0cmVhbS0xNzYuc3VyZmVybmV0d29yay5jb20iLCJydHRsIjo1LCJqdGkiOiJNU0dmWkpCdFJXbWZxemRVX1dFVTlRIiwiaWF0IjoxNzgyNTg3NjUwLCJleHAiOjE3ODI1ODc3MTB9.YIb15YC6YCRWc56WxfYeTlbYGtrKkQCrMwoHUqJMCp0\")",
+      "Bash(curl -I -s --max-time 10 \"https://stream.zeno.fm/afkw3v1gva0uv\")"
+    ]
+  }
+}

@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R.B Studio - A Rádio que Combina com Você</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+      <img src="assets/LOGOrbSEMFUNDO.png" alt="R.B Studio" class="splash-logo" />
+      <p class="splash-text">Carregando...</p>
+      <div class="splash-progress">
+        <div class="splash-bar" id="splashProgress"></div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+      <div class="scroll-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="logo">
+          <img src="assets/logoRB.png" alt="R.B Studio"/>
+          <h1><span>RB</span> Studio</h1>
+          <div class="sound-wave">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        
+
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html" class="active">Início</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="programacao.html">Programação</a>
+          <a href="noticias.html">Notícias</a>
+          <a href="patrocinadores.html">Patrocínios</a>
+          <a href="redes.html">Redes</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+
+        <button class="menu-toggle" id="menuToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-section" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              <span class="title-main">R.B</span>
+              <span class="title-sub">STUDIO</span>
+            </h1>
+            <p class="hero-desc">
+              A rádio que combina com você. Sinta a energia da música urbana.
+            </p>
+            <div class="hero-btns">
+              <button class="btn-primary">
+                <i class="fas fa-play"></i> Ouça Agora
+              </button>
+              <button class="btn-secondary">
+                <i class="fas fa-broadcast-tower"></i> Ao Vivo
+              </button>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-logo-center">
+              <img src="assets/musicLISTENER.png" alt="R.B Studio Logo" />
+            </div>
+          </div>
+                  </div>
+      </div>
+    </section>
+
+    <!-- Player -->
+    <section class="player-section">
+      <div class="container">
+        <div class="player-box">
+          <div class="player-logo">
+            <img src="assets/LOGOrbSEMFUNDO.png" alt="R.B Studio" />
+          </div>
+          <div class="player-info">
+            <span class="player-label">TOCANDO AGORA</span>
+            <h3 class="player-track">AO VIVO</h3>
+            <p class="player-artist">RB radio</p>
+          </div>
+          <div class="player-controls">
+            <button><i class="fas fa-step-backward"></i></button>
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <button><i class="fas fa-step-forward"></i></button>
+          </div>
+          <div class="player-wave">
+            <span></span><span></span><span></span><span></span><span></span
+            ><span></span><span></span><span></span>
+          </div>
+          <div class="player-live"><span class="live-dot"></span> AO VIVO</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destaques -->
+    <section class="section highlights">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Explore <span class="title-accent">R.B Studio</span>
+          </h2>
+        </div>
+        <div class="highlights-grid">
+          <a href="programacao.html" class="highlight-card">
+            <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+            <h3>Programação</h3>
+            <p>Shows ao vivo, playlists e muito mais</p>
+          </a>
+          <a href="noticias.html" class="highlight-card">
+            <div class="card-icon"><i class="fas fa-newspaper"></i></div>
+            <h3>Notícias</h3>
+            <p>Fique por dentro das novidades</p>
+          </a>
+          <a href="sobre.html" class="highlight-card">
+            <div class="card-icon"><i class="fas fa-info-circle"></i></div>
+            <h3>Sobre Nós</h3>
+            <p>Conheça a nossa história</p>
+          </a>
+          <a href="patrocinadores.html" class="highlight-card">
+            <div class="card-icon"><i class="fas fa-handshake"></i></div>
+            <h3>Patrocínios</h3>
+            <p>Parcerias e anúncios</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Últimas Notícias -->
+    <section class="section news-preview">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Últimas <span class="title-accent">Notícias</span>
+          </h2>
+          <a href="noticias.html" class="view-all"
+            >Ver todas <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+        <div class="news-grid">
+          <div class="news-empty">
+            <i class="fas fa-newspaper"></i>
+            <p>Nenhuma notícia publicada ainda.</p>
+            <span>Em breve aqui!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publicidade -->
+    <section class="section pub-section">
+      <div class="container">
+        <div class="pub-box">
+          <div class="pub-icon"><i class="fas fa-bullhorn"></i></div>
+          <div class="pub-content">
+            <h2>ANUNCIE NA R.B STUDIO</h2>
+            <p>Alcance milhares de ouvintes. Sua marca no topo.</p>
+          </div>
+          <a href="contato.html" class="btn-primary"
+            >Fale Conosco <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="assets/LOGOrbSEMFUNDO.png" alt="R.B Studio" />
+            <p>A rádio que combina com você</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>Links</h4>
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="programacao.html">Programação</a>
+            <a href="noticias.html">Notícias</a>
+            <a href="patrocinadores.html">Patrocínios</a>
+            <a href="redes.html">Redes</a>
+            <a href="contato.html">Contato</a>
+          </div>
+          <div class="footer-contact">
+            <h4>Contato</h4>
+            <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+            <p><i class="fas fa-envelope"></i> contato@rbstudio.com.br</p>
+            <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 R.B Studio. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

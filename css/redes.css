@@ -1,0 +1,150 @@
+/* ========================================
+   R.B STUDIO - Redes CSS
+   ======================================== */
+
+/* Social Grid */
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 25px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.social-card:hover {
+    transform: translateX(10px);
+    border-color: #a855f7;
+    box-shadow: 0 0 30px rgba(168,85,247,0.3);
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.social-card.instagram .social-icon {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-card.facebook .social-icon {
+    background: #1877f2;
+}
+
+.social-card.youtube .social-icon {
+    background: #ff0000;
+}
+
+.social-card.whatsapp .social-icon {
+    background: #25d366;
+}
+
+.social-card.tiktok .social-icon {
+    background: linear-gradient(45deg, #00f2ea, #ff0050);
+}
+
+.social-card.twitter .social-icon {
+    background: #000;
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.social-info p {
+    font-size: 14px;
+    color: #e5e7eb;
+}
+
+.social-arrow {
+    font-size: 20px;
+    color: #a855f7;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.social-card:hover .social-arrow {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Stream Section */
+.stream-section {
+    background: rgba(255,255,255,0.02);
+}
+
+.stream-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.stream-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.stream-card:hover {
+    transform: translateY(-8px);
+    border-color: #a855f7;
+    box-shadow: 0 0 30px rgba(168,85,247,0.3);
+}
+
+.stream-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(168,85,247,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #a855f7;
+}
+
+.stream-card h3 {
+    font-size: 20px;
+}
+
+.stream-card p {
+    font-size: 14px;
+    color: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+    .social-grid { grid-template-columns: 1fr; }
+    .stream-grid { grid-template-columns: 1fr; }
+}
