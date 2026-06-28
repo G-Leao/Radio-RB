@@ -91,6 +91,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 .logo span {
   color: #a855f7;
@@ -98,6 +99,16 @@
 .logo img {
   height: 100px;
   border-radius: 20%;
+}
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+}
+.header h1 span {
+  color: #a855f7;
 }
 
 /* Sound Wave Equalizer */
@@ -215,8 +226,8 @@
   .logo img {
     height: 50px !important;
   }
-  .logo h1 {
-    font-size: 16px;
+  .header h1 {
+    font-size: 18px;
   }
   .sound-wave {
     display: none;
