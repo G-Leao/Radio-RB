@@ -2,6 +2,114 @@
    R.B STUDIO - Page CSS
    ======================================== */
 
+/*=================================HEADER=========================*/
+.header-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(20, 20, 25, 0.8);
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+@media (max-width: 480px) {
+  .header-player {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.header-play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.header-play-btn:hover {
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+}
+
+.header-play-btn .fa-pause {
+  font-size: 11px;
+}
+
+.header-player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-player-status {
+  font-size: 9px;
+  font-weight: 700;
+  color: #22c55e;
+  letter-spacing: 1.5px;
+}
+
+.header-player-track {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.header-equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 20px;
+}
+
+.header-equalizer span {
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to top, #22c55e, #a855f7);
+  animation: eq 0.4s infinite ease-in-out alternate;
+}
+
+.header-equalizer span:nth-child(1) {
+  animation-delay: 0s;
+  height: 6px;
+}
+.header-equalizer span:nth-child(2) {
+  animation-delay: 0.1s;
+  height: 14px;
+}
+.header-equalizer span:nth-child(3) {
+  animation-delay: 0.2s;
+  height: 18px;
+}
+.header-equalizer span:nth-child(4) {
+  animation-delay: 0.1s;
+  height: 12px;
+}
+.header-equalizer span:nth-child(5) {
+  animation-delay: 0.05s;
+  height: 8px;
+}
+
+@keyframes eq {
+  0% {
+    height: 4px;
+    opacity: 0.7;
+  }
+  100% {
+    height: 18px;
+    opacity: 1;
+  }
+}
+
 /* ========== SPLASH SCREEN ========== */
 .splash-screen {
   position: fixed;
@@ -158,7 +266,7 @@
   .main-nav a {
     font-size: 24px;
     padding: 16px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
   .logo img {
     height: 70px !important;
@@ -175,7 +283,18 @@
 .page-hero {
   padding: 150px 0 80px;
   text-align: center;
-  background: radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 85% 85%, rgba(135, 26, 230, 0.3) 0%, transparent 50%), linear-gradient(180deg, rgba(10, 10, 10, 0.5), transparent);
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(135, 26, 230, 0.3) 0%,
+      transparent 50%
+    ),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.5), transparent);
 }
 .page-hero h1 {
   font-size: 56px;
@@ -389,12 +508,12 @@
 
 /* Team */
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(320px, 380px));
-    justify-content: center;
-    align-items: stretch;
-    gap: 40px;
-    margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 380px));
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  margin-top: 50px;
 }
 .team-card {
   background: rgba(255, 255, 255, 0.05);
@@ -404,50 +523,49 @@
   text-align: center;
 }
 
-
-.team-card{
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 22px;
-    padding: 35px 30px;
-    text-align: center;
-    transition: .35s;
-    backdrop-filter: blur(12px);
+.team-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 35px 30px;
+  text-align: center;
+  transition: 0.35s;
+  backdrop-filter: blur(12px);
 }
 
-.team-card:hover{
-    transform: translateY(-8px);
-    border-color: var(--purple-neon);
-    box-shadow: 0 20px 45px rgba(168,85,247,.25);
+.team-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--purple-neon);
+  box-shadow: 0 20px 45px rgba(168, 85, 247, 0.25);
 }
 
-.team-card img{
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid rgba(168,85,247,.4);
-    margin: 0 auto 20px;
-    display: block;
-    transition: .35s;
+.team-card img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(168, 85, 247, 0.4);
+  margin: 0 auto 20px;
+  display: block;
+  transition: 0.35s;
 }
 
-.team-card:hover img{
-    transform: scale(1.05);
-    border-color: var(--purple-neon);
-    box-shadow: 0 0 35px rgba(168,85,247,.4);
+.team-card:hover img {
+  transform: scale(1.05);
+  border-color: var(--purple-neon);
+  box-shadow: 0 0 35px rgba(168, 85, 247, 0.4);
 }
 
-.team-card h3{
-    font-size: 24px;
-    margin-bottom: 8px;
-    font-weight: 700;
+.team-card h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 700;
 }
 
-.team-card p{
-    color: #c084fc;
-    font-size: 15px;
-    line-height: 1.6;
+.team-card p {
+  color: #c084fc;
+  font-size: 15px;
+  line-height: 1.6;
 }
 .team-card img {
   width: 250px;
@@ -469,60 +587,60 @@
    Team Social
 =========================== */
 
-.team-social{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    margin-top: 22px;
+.team-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
 }
 
-.team-social a{
-    width: 48px;
-    height: 48px;
+.team-social a {
+  width: 48px;
+  height: 48px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border-radius: 50%;
-    text-decoration: none;
+  border-radius: 50%;
+  text-decoration: none;
 
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-    color: #fff;
-    font-size: 22px;
+  color: #fff;
+  font-size: 22px;
 
-    transition: .35s ease;
+  transition: 0.35s ease;
 }
 
-.team-social a:hover{
-    transform: translateY(-6px) scale(1.08);
-    border-color: var(--purple-neon);
-    box-shadow: 0 0 22px rgba(168,85,247,.45);
+.team-social a:hover {
+  transform: translateY(-6px) scale(1.08);
+  border-color: var(--purple-neon);
+  box-shadow: 0 0 22px rgba(168, 85, 247, 0.45);
 }
 
 /* Instagram */
-.team-social a:first-child:hover{
-    color: #E1306C;
-    border-color: #E1306C;
-    box-shadow: 0 0 25px rgba(225,48,108,.45);
+.team-social a:first-child:hover {
+  color: #e1306c;
+  border-color: #e1306c;
+  box-shadow: 0 0 25px rgba(225, 48, 108, 0.45);
 }
 
 /* YouTube */
-.team-social a:last-child:hover{
-    color: #FF0000;
-    border-color: #FF0000;
-    box-shadow: 0 0 25px rgba(255,0,0,.45);
+.team-social a:last-child:hover {
+  color: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.45);
 }
 
-.team-social i{
-    transition: transform .3s;
+.team-social i {
+  transition: transform 0.3s;
 }
 
-.team-social a:hover i{
-    transform: scale(1.15);
+.team-social a:hover i {
+  transform: scale(1.15);
 }
 
 @media (max-width: 768px) {
@@ -534,7 +652,13 @@
 /* Footer */
 .footer {
   padding: 60px 0 20px;
-  background: radial-gradient(circle at 85% 85%, rgba(135, 26, 230, 0.3) 0%, transparent 50%), radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3) 0%, #0a0a0a 60%);
+  background:
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(135, 26, 230, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3) 0%, #0a0a0a 60%);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .footer-grid {

@@ -57,6 +57,18 @@
         <button class="menu-toggle" id="menuToggle">
           <span></span><span></span><span></span>
         </button>
+        <div class="header-player">
+          <button class="header-play-btn" id="headerPlayBtn">
+            <i class="fas fa-play"></i>
+          </button>
+          <div class="header-player-info">
+            <span class="header-player-status">AO VIVO</span>
+            <span class="header-player-track">R.B Studio</span>
+          </div>
+          <div class="header-equalizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -110,15 +122,6 @@
             <canvas id="playerVisualizer"></canvas>
           </div>
           <div class="player-live"><span class="live-dot"></span> AO VIVO</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Audio Visualizer Section -->
-    <section class="section visualizer-section">
-      <div class="container">
-        <div class="visualizer-box">
-          <canvas id="mainVisualizer"></canvas>
         </div>
       </div>
     </section>
@@ -229,6 +232,8 @@
         </div>
       </div>
     </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="js/main.js"></script>
   </body>

@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initAudioVisualizer();
     initMiniVisualizer();
     initPlayer();
+    initHeaderPlayer();
+    initBackToTop();
+    initHeroButtons();
+    autoResumeIfNeeded();
 });
 
 // ========================================
@@ -363,145 +367,152 @@ function initAudioVisualizer() {
 }
 
 // ========================================
+// BACK TO TOP BUTTON
+// ========================================
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    // Mostrar botão ao rolar
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Clique para subir
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ========================================
+// HEADER PLAYER (Fixed at top)
+// ========================================
+function initHeaderPlayer() {
+    const headerBtn = document.getElementById('headerPlayBtn');
+    if (!headerBtn) return;
+
+    // Sync icon with global state
+    if (globalIsPlaying) {
+        headerBtn.querySelector('i').className = 'fas fa-pause';
+    }
+
+    headerBtn.addEventListener('click', () => {
+        togglePlay();
+    });
+}
+
+// ========================================
+// HERO BUTTONS
+// ========================================
+function initHeroButtons() {
+    // btn-primary: scroll to player
+    document.querySelectorAll('.btn-primary').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            togglePlay();
+            scrollToPlayer();
+        });
+    });
+
+    // btn-secondary: just play
+    document.querySelectorAll('.btn-secondary').forEach(btn => {
+        btn.addEventListener('click', () => {
+            togglePlay();
+        });
+    });
+}
+
+// ========================================
+// GLOBAL AUDIO (persistent across pages)
+// ========================================
+let globalAudio = null;
+let globalIsPlaying = false;
+const STREAM_URL = 'https://stream.zeno.fm/afkw3v1gva0uv';
+
+// Check sessionStorage for persisted state
+const wasPlaying = sessionStorage.getItem('rbstudio_playing') === 'true';
+
+function getOrCreateAudio() {
+    if (!globalAudio) {
+        globalAudio = new Audio();
+        globalAudio.src = STREAM_URL;
+        globalAudio.crossOrigin = 'anonymous';
+        globalAudio.addEventListener('playing', () => {
+            globalIsPlaying = true;
+            sessionStorage.setItem('rbstudio_playing', 'true');
+            updateAllPlayers();
+        });
+        globalAudio.addEventListener('pause', () => {
+            globalIsPlaying = false;
+            sessionStorage.setItem('rbstudio_playing', 'false');
+            updateAllPlayers();
+        });
+    }
+    return globalAudio;
+}
+
+// Auto-resume if was playing
+function autoResumeIfNeeded() {
+    if (wasPlaying && !globalIsPlaying) {
+        const audio = getOrCreateAudio();
+        audio.play().catch(() => {});
+    }
+}
+
+function updateAllPlayers() {
+    // Update all play buttons
+    document.querySelectorAll('.play-btn, .header-play-btn, .btn-primary').forEach(btn => {
+        const icon = btn.querySelector('i');
+        if (icon && !btn.classList.contains('header-play-btn')) {
+            icon.className = globalIsPlaying ? 'fas fa-pause' : 'fas fa-play';
+        }
+    });
+    // Update header player
+    const headerIcon = document.querySelector('#headerPlayBtn i');
+    if (headerIcon) headerIcon.className = globalIsPlaying ? 'fas fa-pause' : 'fas fa-play';
+    // Update player section
+    const playerTrack = document.querySelector('.player-section .player-track');
+    const playerLabel = document.querySelector('.player-section .player-label');
+    if (playerTrack) {
+        playerTrack.textContent = globalIsPlaying ? 'AO VIVO' : 'PARADO';
+        playerTrack.style.color = globalIsPlaying ? '#a855f7' : '#9ca3af';
+    }
+    if (playerLabel) {
+        playerLabel.textContent = globalIsPlaying ? 'TOCANDO AGORA' : 'AGUARDANDO';
+    }
+    // Update mini visualizer
+    if (window.miniVisualizerPlay && globalIsPlaying) window.miniVisualizerPlay();
+    if (window.miniVisualizerStop && !globalIsPlaying) window.miniVisualizerStop();
+}
+
+async function togglePlay() {
+    const audio = getOrCreateAudio();
+    if (globalIsPlaying) {
+        audio.pause();
+    } else {
+        try { await audio.play(); } catch (e) { console.log('Play error:', e); }
+    }
+}
+
+function scrollToPlayer() {
+    const player = document.querySelector('.player-section');
+    if (player) player.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ========================================
 // PLAYER SYSTEM
 // ========================================
 function initPlayer() {
     const playBtn = document.querySelector('.play-btn');
-    const playerWave = document.querySelector('.player-wave');
-    const playerTrack = document.querySelector('.player-track');
-    const playerLabel = document.querySelector('.player-label');
     if (!playBtn) return;
 
-    let audio = null;
-    let isPlaying = false;
-    let isLoading = false;
-
-    // ========================================================
-    // Stream URL da Radio RB - Zeno.fm (funcionando!)
-    // ========================================================
-    const STREAM_URL = 'https://stream.zeno.fm/afkw3v1gva0uv';
-    console.log('[Player] Stream URL:', STREAM_URL);
-
-    function updateUI() {
-        const icon = playBtn.querySelector('i');
-        if (!icon) return;
-
-        if (isPlaying) {
-            icon.className = 'fas fa-pause';
-            playerTrack.textContent = 'AO VIVO';
-            playerTrack.style.color = '#a855f7';
-            playerLabel.textContent = 'TOCANDO AGORA';
-            if (playerWave) playerWave.classList.add('active');
-
-            // Mini visualizer play
-            if (window.miniVisualizerPlay) window.miniVisualizerPlay();
-
-            // Iniciar visualizador com dados reais
-            if (window.visualizerStart && audio) {
-                window.visualizerStart(audio);
-            }
-        } else {
-            icon.className = 'fas fa-play';
-            playerTrack.textContent = 'PARADO';
-            playerTrack.style.color = '#9ca3af';
-            playerLabel.textContent = 'AGUARDANDO';
-            if (playerWave) playerWave.classList.remove('active');
-
-            // Mini visualizer stop
-            if (window.miniVisualizerStop) window.miniVisualizerStop();
-
-            // Parar visualizador
-            if (window.visualizerStop) {
-                window.visualizerStop();
-            }
-        }
+    // Use global audio system
+    if (globalAudio && globalIsPlaying) {
+        updateAllPlayers();
     }
 
-    function setupListeners() {
-        if (!audio) return;
-
-        audio.addEventListener('playing', () => {
-            isPlaying = true;
-            isLoading = false;
-            updateUI();
-        });
-
-        audio.addEventListener('pause', () => {
-            isPlaying = false;
-            updateUI();
-        });
-
-        audio.addEventListener('error', () => {
-            isLoading = false;
-            playerTrack.textContent = 'OFFLINE';
-            playerTrack.style.color = '#ef4444';
-            playerLabel.textContent = 'STREAM OFFLINE';
-            updateUI();
-        });
-
-        audio.addEventListener('ended', () => {
-            isPlaying = false;
-            updateUI();
-        });
-    }
-
-    async function loadStream() {
-        if (isLoading || audio) return;
-        isLoading = true;
-        console.log('[Player] Carregando stream...');
-
-        try {
-            audio = new Audio();
-            audio.src = STREAM_URL;
-            audio.crossOrigin = 'anonymous';
-            audio.preload = 'none';
-
-            audio.addEventListener('canplaythrough', () => {
-                console.log('[Player] Stream pronta para tocar');
-            });
-
-            audio.addEventListener('loadedmetadata', () => {
-                console.log('[Player] Metadata carregada, duração:', audio.duration);
-            });
-
-            setupListeners();
-
-            const playPromise = audio.play();
-            if (playPromise !== undefined) {
-                await playPromise;
-                isPlaying = true;
-                isLoading = false;
-                updateUI();
-                console.log('[Player] Reprodução iniciada');
-            }
-        } catch (err) {
-            console.log('[Player] Erro ao carregar stream:', err.message || err);
-            isLoading = false;
-            if (playerTrack) {
-                playerTrack.textContent = 'OFFLINE';
-                playerTrack.style.color = '#ef4444';
-            }
-            if (playerLabel) {
-                playerLabel.textContent = 'FALHA AO CONECTAR';
-            }
-            updateUI();
-        }
-    }
-
-    playBtn.addEventListener('click', async () => {
-        if (!audio) {
-            await loadStream();
-        } else if (isPlaying) {
-            audio.pause();
-        } else {
-            try {
-                await audio.play();
-            } catch (err) {
-                console.log('Erro ao reproduzir:', err);
-                playerTrack.textContent = 'OFFLINE';
-                playerTrack.style.color = '#ef4444';
-            }
-        }
+    playBtn.addEventListener('click', () => {
+        togglePlay();
     });
 }
 // ========================================
