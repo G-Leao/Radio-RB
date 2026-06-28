@@ -222,17 +222,12 @@
     display: none;
   }
   .menu-toggle {
-    display: flex !important;
-    position: fixed !important;
-    top: 10px !important;
-    right: 10px !important;
-    z-index: 100001 !important;
-    padding: 12px !important;
-    background: transparent !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    width: auto !important;
-    height: auto !important;
+    display: flex;
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    z-index: 100001;
+    padding: 10px;
   }
   .main-nav {
     position: fixed;
