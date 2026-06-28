@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - R.B Studio</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/contato.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="assets/LOGOrbSEMFUNDO.png" alt="R.B Studio"></a>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="programacao.html">Programação</a>
+                <a href="noticias.html">Notícias</a>
+                <a href="patrocinadores.html">Patrocínios</a>
+                <a href="redes.html">Redes</a>
+                <a href="contato.html" class="active">Contato</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Fale <span class="title-accent">Conosco</span></h1>
+            <p>Entre em contato com a R.B Studio</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Informações</h2>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3>Endereço</h3>
+                            <p>São Paulo, SP - Brasil</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h3>Telefone</h3>
+                            <p>(11) 99999-9999</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>contato@rbstudio.com.br</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h3>Horário</h3>
+                            <p>Seg - Sex: 09h às 18h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Envie uma Mensagem</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Seu email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="assunto">Assunto</label>
+                            <select id="assunto" name="assunto">
+                                <option value="">Selecione...</option>
+                                <option value="contato">Contato Geral</option>
+                                <option value="publicidade">Publicidade</option>
+                                <option value="parceria">Parceria</option>
+                                <option value="sugestao">Sugestão</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Enviar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><img src="assets/LOGOrbSEMFUNDO.png" alt="R.B Studio"><p>A rádio que combina com você</p></div>
+                <div class="footer-links"><h4>Links</h4><a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="programacao.html">Programação</a><a href="noticias.html">Notícias</a><a href="patrocinadores.html">Patrocínios</a><a href="redes.html">Redes</a><a href="contato.html">Contato</a></div>
+                <div class="footer-contact"><h4>Contato</h4><p><i class="fas fa-phone"></i> (11) 99999-9999</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 R.B Studio.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
