@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initReveal();
     initAudioVisualizer();
+    initMiniVisualizer();
     initPlayer();
 });
 
@@ -392,6 +393,9 @@ function initPlayer() {
             playerLabel.textContent = 'TOCANDO AGORA';
             if (playerWave) playerWave.classList.add('active');
 
+            // Mini visualizer play
+            if (window.miniVisualizerPlay) window.miniVisualizerPlay();
+
             // Iniciar visualizador com dados reais
             if (window.visualizerStart && audio) {
                 window.visualizerStart(audio);
@@ -402,6 +406,9 @@ function initPlayer() {
             playerTrack.style.color = '#9ca3af';
             playerLabel.textContent = 'AGUARDANDO';
             if (playerWave) playerWave.classList.remove('active');
+
+            // Mini visualizer stop
+            if (window.miniVisualizerStop) window.miniVisualizerStop();
 
             // Parar visualizador
             if (window.visualizerStop) {
@@ -497,4 +504,110 @@ function initPlayer() {
         }
     });
 }
+// ========================================
+// MINI VISUALIZER (Player)
+// ========================================
+function initMiniVisualizer() {
+    const canvas = document.getElementById('playerVisualizer');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Configurar canvas com DPI correta
+    function setupCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
+    }
+    setupCanvas();
+    window.addEventListener('resize', setupCanvas);
+
+    // Cores do gradiente
+    const colors = ['#39FF14', '#7CFF5B', '#FFD400', '#A855F7', '#7C3AED'];
+
+    // Configurações - discreto e leve
+    const config = {
+        barCount: 28,      // 28 barras (entre 24-36)
+        barWidth: 2,        // 2px
+        barGap: 2,          // 2px gap
+        minHeight: 2,        // Altura mínima
+        maxHeight: 24        // Altura máxima no player
+    };
+
+    // Criar gradiente por barra
+    function createGradient(width) {
+        const gradient = ctx.createLinearGradient(0, 0, width, 0);
+        gradient.addColorStop(0, colors[0]);
+        gradient.addColorStop(0.25, colors[1]);
+        gradient.addColorStop(0.5, colors[2]);
+        gradient.addColorStop(0.75, colors[3]);
+        gradient.addColorStop(1, colors[4]);
+        return gradient;
+    }
+
+    // Variáveis
+    let animationId = null;
+    let isPlaying = false;
+
+    // Desenhar
+    function draw() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const centerY = height / 2;
+        const barTotalWidth = config.barWidth + config.barGap;
+        const startX = (width - (config.barCount * barTotalWidth)) / 2;
+
+        ctx.clearRect(0, 0, width, height);
+        const time = Date.now() / 1000;
+
+        for (let i = 0; i < config.barCount; i++) {
+            const x = startX + i * barTotalWidth;
+
+            // Movimento orgânico simulado
+            const centerDist = Math.abs(i - config.barCount / 2) / (config.barCount / 2);
+            const centerBoost = 1 - centerDist * 0.4;
+            const wave1 = Math.sin(time * 2 + i * 0.25);
+            const wave2 = Math.cos(time * 1.5 + i * 0.15);
+            const baseH = config.minHeight + (isPlaying ? config.maxHeight * 0.7 : config.maxHeight * 0.3);
+            const variation = (wave1 * 0.5 + wave2 * 0.3) * centerBoost;
+            const barHeight = Math.max(config.minHeight, baseH + variation * (isPlaying ? 1 : 0.5));
+
+            const y = centerY - barHeight / 2;
+
+            // Glow suave
+            ctx.shadowColor = colors[3];
+            ctx.shadowBlur = isPlaying ? 8 : 4;
+
+            // Desenhar barra
+            ctx.fillStyle = createGradient(width);
+            ctx.fillRect(x, y, config.barWidth, barHeight);
+        }
+
+        ctx.shadowBlur = 0;
+    }
+
+    // Loop de animação
+    function animate() {
+        draw();
+        animationId = requestAnimationFrame(animate);
+    }
+
+    // Iniciar
+    window.miniVisualizerPlay = function() {
+        isPlaying = true;
+        if (!animationId) animate();
+    };
+
+    // Parar
+    window.miniVisualizerStop = function() {
+        isPlaying = false;
+    };
+}
+
 // END PLAYER SYSTEM
