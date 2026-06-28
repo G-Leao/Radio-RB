@@ -194,6 +194,18 @@ body {
   animation: pulseWave 1s infinite 0.8s;
 }
 
+/* Mobile: reduce pseudo-element sizes to prevent overflow */
+@media (max-width: 576px) {
+  .hero-image::before {
+    width: 280px;
+    height: 280px;
+  }
+  .hero-image::after {
+    width: 340px;
+    height: 340px;
+  }
+}
+
 @keyframes pulseWave {
   0% {
     transform: scale(0.8);
@@ -213,6 +225,14 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
+}
+
+/* Mobile: reduce image container size to prevent overflow */
+@media (max-width: 576px) {
+  .image-container {
+    width: 280px;
+    height: 280px;
+  }
 }
 
 .image-container img {
