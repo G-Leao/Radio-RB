@@ -142,7 +142,7 @@ function initReveal() {
 // AUDIO VISUALIZER SYSTEM
 // ========================================
 function initAudioVisualizer() {
-    const canvas = document.getElementById('audioCanvas');
+    const canvas = document.getElementById('mainVisualizer');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
