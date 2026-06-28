@@ -66,53 +66,7 @@
 }
 
 /* ========== HEADER ========== */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 12px 0;
-  background: rgba(10, 10, 10, 0.9);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.header.scrolled {
-  padding: 10px 0;
-}
-
-.header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.logo{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-.logo span {
-  color: #a855f7;
-}
-.logo img {
-  height: 100px;
-  border-radius: 20%;
-}
-.header h1 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #fff;
-  margin: 0;
-  white-space: nowrap;
-}
-.header h1 span {
-  color: #a855f7;
-}
-
-/* Sound Wave Equalizer */
+/* Header styles moved to page.css */
 .sound-wave {
   display: flex;
   align-items: flex-end;
@@ -218,20 +172,8 @@
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 5px 0;
-  }
   .header .container {
     padding: 0 12px;
-  }
-  .logo img {
-    height: 50px !important;
-  }
-  .header h1 {
-    font-size: 18px;
-  }
-  .sound-wave {
-    display: none;
   }
   .menu-toggle {
     display: flex;
