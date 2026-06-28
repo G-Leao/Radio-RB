@@ -254,7 +254,6 @@
   }
   .header .container {
     padding: 0 12px;
-    position: relative;
   }
   .logo img {
     height: 50px !important;
@@ -267,12 +266,11 @@
   }
   .menu-toggle {
     display: flex;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+    position: fixed;
+    top: 18px;
+    right: 20px;
     z-index: 1001;
-    padding: 8px;
+    padding: 10px;
   }
   .main-nav {
     position: fixed;
