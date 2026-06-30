@@ -421,7 +421,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 18px 35px;
-  background: var(--purple-neon);
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
   color: var(--white);
   font-size: 14px;
   font-weight: 700;
