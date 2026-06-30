@@ -568,6 +568,17 @@ body {
   align-items: center;
 }
 
+.hero-logo-center::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: transparent;
+  z-index: -1;
+  animation: logoWaveGlow 3s linear infinite;
+}
+
 .hero-logo-center img {
   width: 100%;
   max-width: 500px;
@@ -575,6 +586,39 @@ body {
   height: auto;
   filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.5));
   animation: logoFloat 2s ease-in-out infinite;
+}
+
+@keyframes logoWaveGlow {
+  0% {
+    border: 3px solid rgba(255, 0, 110, 0.6);
+    box-shadow:
+      0 0 20px rgba(255, 0, 110, 0.4),
+      inset 0 0 30px rgba(255, 0, 110, 0.1);
+  }
+  25% {
+    border: 3px solid rgba(251, 88, 7, 0.6);
+    box-shadow:
+      0 0 20px rgba(251, 88, 7, 0.4),
+      inset 0 0 30px rgba(251, 88, 7, 0.1);
+  }
+  50% {
+    border: 3px solid rgba(131, 56, 236, 0.6);
+    box-shadow:
+      0 0 20px rgba(131, 56, 236, 0.4),
+      inset 0 0 30px rgba(131, 56, 236, 0.1);
+  }
+  75% {
+    border: 3px solid rgba(58, 134, 255, 0.6);
+    box-shadow:
+      0 0 20px rgba(58, 134, 255, 0.4),
+      inset 0 0 30px rgba(58, 134, 255, 0.1);
+  }
+  100% {
+    border: 3px solid rgba(255, 0, 110, 0.6);
+    box-shadow:
+      0 0 20px rgba(255, 0, 110, 0.4),
+      inset 0 0 30px rgba(255, 0, 110, 0.1);
+  }
 }
 
 @keyframes logoFloat {
