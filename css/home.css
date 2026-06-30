@@ -1005,9 +1005,12 @@ body {
     display: none;
   }
   .player-right {
-    position: absolute;
-    top: 10px;
-    right: 15px;
+    display: none;
+  }
+  .player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
   }
   .player-live-badge {
     padding: 4px 10px;
