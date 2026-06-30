@@ -980,7 +980,7 @@ body {
 
 @media (max-width: 768px) {
   .player-section {
-    padding: 20px 0;
+    padding: 25px 0;
   }
   .player-card {
     position: fixed;
@@ -991,10 +991,10 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 10px 15px 12px;
-    border-radius: 16px 16px 0 0;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 12px 18px 15px;
+    border-radius: 18px 18px 0 0;
     max-width: 100%;
     transform: translateY(0);
   }
@@ -1006,24 +1006,24 @@ body {
   }
   .player-right {
     position: absolute;
-    top: 8px;
-    right: 12px;
+    top: 10px;
+    right: 15px;
   }
   .player-live-badge {
-    padding: 3px 8px;
-    font-size: 9px;
+    padding: 4px 10px;
+    font-size: 10px;
   }
   .player-live-badge .live-dot {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
   }
   .player-center {
     flex-direction: row;
-    gap: 12px;
+    gap: 15px;
     align-items: center;
   }
   .player-title {
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
   }
   .player-subtitle {
@@ -1033,9 +1033,9 @@ body {
     display: none;
   }
   .player-center .play-btn {
-    width: 44px;
-    height: 44px;
-    font-size: 14px;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
   }
   .player-visualizer {
