@@ -54,9 +54,6 @@
           <a href="redes.html">Redes</a>
           <a href="contato.html">Contato</a>
         </nav>
-        <button class="menu-toggle" id="menuToggle">
-          <span></span><span></span><span></span>
-        </button>
         <div class="header-player">
           <button class="header-play-btn" id="headerPlayBtn">
             <i class="fas fa-play"></i>
@@ -69,6 +66,9 @@
             <span></span><span></span><span></span><span></span><span></span>
           </div>
         </div>
+        <button class="menu-toggle" id="menuToggle">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
 
@@ -102,26 +102,25 @@
       </div>
     </section>
 
-    <!-- Player -->
+    <!-- Player Premium -->
     <section class="player-section">
-      <div class="container">
-        <div class="player-box">
-          <div class="player-logo">
-            <img src="assets/LOGOrbSEMFUNDO.png" alt="R.B Studio" />
+      <div class="player-card">
+        <div class="player-left">
+          <div class="player-logo-box">
+            <img src="assets/LOGOrbSEMFUNDO.png" alt="R.B Studio" class="player-logo" />
           </div>
-          <div class="player-info">
-            <span class="player-label">TOCANDO AGORA</span>
-            <h3 class="player-track">AO VIVO</h3>
-            <p class="player-artist">RB radio</p>
-          </div>
-
-          <div class="player-controls">
-            <button class="play-btn"><i class="fas fa-play"></i></button>
-          </div>
-          <div class="mini-visualizer">
-            <canvas id="playerVisualizer"></canvas>
-          </div>
-          <div class="player-live"><span class="live-dot"></span> AO VIVO</div>
+        </div>
+        <div class="player-center">
+          <h2 class="player-title">RB Studio</h2>
+          <p class="player-subtitle">Dê o <span class="accent">PLAY</span> na RB</p>
+          <div class="player-divider"></div>
+          <button class="play-btn"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="player-right">
+          <div class="player-live-badge"><span class="live-dot"></span> AO VIVO</div>
+        </div>
+        <div class="player-visualizer">
+          <canvas id="playerVisualizer"></canvas>
         </div>
       </div>
     </section>
@@ -233,7 +232,9 @@
       </div>
     </footer>
 
-    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <button class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="js/main.js"></script>
   </body>
