@@ -641,6 +641,14 @@ body {
 
 /* ========== HERO ========== */
 
+.hero-video {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+}
+
 .hero-image {
   position: relative;
   display: flex;
@@ -1573,5 +1581,452 @@ body {
 @media (max-width: 576px) {
   .visualizer-box {
     height: 60px;
+  }
+}
+
+/*BOLAS+++++++++++++++++++++++++++++++++++++++++++
+/* ========================================
+   PARTICLES BACKGROUND
+======================================== */
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: #a855f7;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #a855f7;
+  opacity: 0.6;
+}
+
+/* Diferentes animações para as partículas */
+.particle:nth-child(3n) {
+  width: 4px;
+  height: 4px;
+  animation: beatPulse 0.15s infinite linear;
+}
+
+.particle:nth-child(3n + 1) {
+  width: 2px;
+  height: 2px;
+  animation: beatMove 0.2s infinite linear;
+}
+
+.particle:nth-child(3n + 2) {
+  width: 3px;
+  height: 3px;
+  animation: float 1s infinite linear;
+}
+
+/* =====================
+   ANIMAÇÕES
+===================== */
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+
+  25% {
+    transform: translateY(-50px) translateX(30px) scale(1.4);
+  }
+
+  50% {
+    transform: translateY(-30px) translateX(-30px) scale(0.7);
+  }
+
+  75% {
+    transform: translateY(-60px) translateX(20px) scale(1.3);
+  }
+
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+}
+
+@keyframes beatPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(2.2);
+    opacity: 1;
+    box-shadow: 0 0 25px #a855f7;
+  }
+}
+
+@keyframes beatMove {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  25% {
+    transform: translateY(-35px) scale(1.5);
+  }
+
+  50% {
+    transform: translateY(0) scale(0.6);
+  }
+
+  75% {
+    transform: translateY(-20px) scale(1.3);
+  }
+}
+
+/*=====================================
+    RB SHOWCASE
+======================================*/
+
+.rb-showcase {
+  padding: 120px 0;
+  position: relative;
+}
+
+.rb-showcase-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 90px;
+  align-items: center;
+}
+
+/*==========================
+      IMAGEM
+==========================*/
+
+.rb-image-wrapper {
+  position: relative;
+
+  width: 340px;
+  height: 680px;
+
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Aura */
+
+.rb-image-wrapper::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -35px;
+
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.28) 0%,
+    transparent 70%
+  );
+
+  filter: blur(40px);
+
+  z-index: 0;
+}
+
+/*==========================
+      BORDA ANIMADA
+==========================*/
+
+.rb-wave {
+  position: absolute;
+
+  inset: -4px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+}
+
+.rb-wave::before {
+  content: "";
+
+  position: absolute;
+
+  width: 250%;
+  height: 250%;
+
+  left: -75%;
+  top: -75%;
+
+  background: conic-gradient(
+    transparent 0deg,
+    #a855f7 40deg,
+    transparent 80deg,
+
+    #22c55e 150deg,
+    transparent 190deg,
+
+    #a855f7 260deg,
+    transparent 320deg
+  );
+
+  animation: rotateWave 5s linear infinite;
+}
+
+.rb-wave::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 2px;
+
+  background: #0a0a0a;
+
+  border-radius: 26px;
+}
+
+/*==========================
+      IMAGEM
+==========================*/
+
+.rb-image {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 38px;
+
+  background: #050505;
+
+  padding: 12px;
+
+  border: 2px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(168, 85, 247, 0.18);
+}
+
+.rb-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain; /* mostra a imagem inteira */
+
+  object-position: center;
+
+  display: block;
+
+  background: #111;
+
+  transition: 0.5s;
+}
+
+.rb-image::selection {
+  background: transparent;
+}
+
+/* Reflexo da tela */
+.rb-image::before {
+  content: "";
+
+  position: absolute;
+
+  top: -120%;
+  left: -60%;
+
+  width: 45%;
+  height: 320%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+
+  transform: rotate(22deg);
+
+  animation: screenReflection 6s ease-in-out infinite;
+
+  pointer-events: none;
+
+  z-index: 25;
+}
+@keyframes screenReflection {
+  0% {
+    transform: translateX(-250%) rotate(22deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(380%) rotate(22deg);
+    opacity: 0.9;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(380%) rotate(22deg);
+    opacity: 0;
+  }
+}
+
+/* Ilha dinâmica + câmera */
+/* Câmera frontal */
+.rb-image::after {
+  content: "";
+
+  position: absolute;
+
+  top: 16px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #111;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    inset 0 0 3px rgba(255, 255, 255, 0.15),
+    0 0 6px rgba(0, 0, 0, 0.5);
+
+  z-index: 40;
+}
+/*==========================
+      TEXTO
+==========================*/
+
+.rb-tag {
+  display: inline-flex;
+
+  padding: 8px 18px;
+
+  background: #a855f7;
+
+  border-radius: 40px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
+}
+
+.rb-content h2 {
+  font-size: 48px;
+
+  line-height: 1.15;
+
+  margin-bottom: 25px;
+}
+
+.rb-content p {
+  color: #cfcfcf;
+
+  font-size: 18px;
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+}
+
+/*==========================
+      ANIMAÇÃO
+==========================*/
+
+@keyframes rotateWave {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*==========================
+      RESPONSIVO
+==========================*/
+
+@media (max-width: 950px) {
+  .rb-showcase-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .rb-image-wrapper {
+    width: 300px;
+    height: 500px;
+  }
+
+  .rb-content h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .rb-image-wrapper {
+    width: 240px;
+    height: 400px;
+  }
+}
+
+/* ==========================================
+   HERO VIDEO - MOBILE REDONDO
+========================================== */
+
+@media (max-width: 768px) {
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-logo-center {
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
   }
 }

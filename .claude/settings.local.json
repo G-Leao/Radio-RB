@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push)",
+      "Bash(git add css/home.css)",
+      "Bash(git commit:*)",
+      "Bash(git add index.html css/home.css)",
+      "Bash(git push origin main)",
+      "Bash(git add index.html)",
+      "Bash(git add index.html css/home.css js/main.js)",
+      "Bash(git add css/home.css css/page.css js/main.js contato.html index.html noticias.html patrocinadores.html programacao.html redes.html sobre.html)",
+      "Bash(git add contato.html index.html noticias.html patrocinadores.html programacao.html redes.html sobre.html css/home.css js/main.js)",
+      "Bash(git push https://github.com/G-Leao/Radio-RB.git main)",
+      "Bash(grep -l \"player-right\" *.html)",
+      "Bash(git add *.html css/home.css)"
+    ]
+  }
+}
